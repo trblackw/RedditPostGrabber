@@ -11,7 +11,7 @@ const score25 = document.querySelector('#twentyFive');
  
  //no functional significance
 catButton.addEventListener('click', () => {
-  ul.innerHTML = `<li class="text-center"><img src="http://www.guzer.com/pictures/poker-cat.jpg" alt="poker-cat"></li>
+  ul.innerHTML = `<li class="text-center col-sm-8 col-md-9 col-lg-10"><img src="http://www.guzer.com/pictures/poker-cat.jpg" alt="poker-cat" class="text-center m-auto"></li>
           <li class="text-center">"Pick a sub, any sub, but make it quick!"</li>`
 });
  
