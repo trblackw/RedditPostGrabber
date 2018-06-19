@@ -18,7 +18,7 @@
  
  //get top 5 posts (no filter)
  const fetchTopFive = async sub => {
-   const URL = `https://www.reddit.com/r/${sub}/top/.json?limit=17`;
+   const URL = `https://www.reddit.com/r/${sub}/top/.json?limit=5`;
    const fetchResult = fetch(URL);
    const response = await fetchResult;
    const jsonData = await response.json();
