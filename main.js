@@ -6,17 +6,17 @@ const catButton = document.querySelector('#poker-cat');
 const score100 = document.querySelector('#hundred');
 const score50 = document.querySelector('#fifty');
 const score25 = document.querySelector('#twentyFive');
- 
- 
- 
- //no functional significance
+
+
+
+//no functional significance
 catButton.addEventListener('click', () => {
-  ul.innerHTML = `<li class="text-center col-sm-8 col-md-9 col-lg-10"><img src="http://www.guzer.com/pictures/poker-cat.jpg" alt="poker-cat" class="text-center m-auto"></li>
+  ul.innerHTML = `<li class="text-center"><img src="http://www.guzer.com/pictures/poker-cat.jpg" alt="poker-cat" class="text-center m-auto col-sm-12 col-md-12 col-lg-10 col-xl-8"></li>
           <li class="text-center">"Pick a sub, any sub, but make it quick!"</li>`
 });
- 
- 
- //get top 5 posts (no filter)
+
+
+//get top 5 posts (no filter)
 const fetchTopFive = async sub => {
   const URL = `https://www.reddit.com/r/${sub}/top/.json?limit=5`;
   const fetchResult = fetch(URL);
@@ -28,20 +28,20 @@ const fetchTopFive = async sub => {
 
 
 }
- 
- // passes selected sub to fetchTopFive()
+
+
+// passes selected sub to fetchTopFive()
 function selectSub() {
   fetchTopFive(this.value);
 }
- 
- 
- 
- select.addEventListener('change', selectSub);
- 
- 
+
+
+
+select.addEventListener('change', selectSub);
+
+
  //filter listeners
  //trying to find a way to apply filters to json after it's already on the page--difficult
- 
- 
+
+
  //fetchTopFive('javascript');
- 
