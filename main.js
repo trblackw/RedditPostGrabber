@@ -3,13 +3,15 @@ const ul = document.querySelector('ul');
 const select = document.querySelector('select');
 const container = document.querySelector('.container');
 const catButton = document.querySelector('#poker-cat');
+
+//not in use yet
 const score100 = document.querySelector('#hundred');
 const score50 = document.querySelector('#fifty');
 const score25 = document.querySelector('#twentyFive');
 
 
 
-//no functional significance
+//brings the cat image back
 catButton.addEventListener('click', () => {
   ul.innerHTML = `<li class="text-center"><img src="http://www.guzer.com/pictures/poker-cat.jpg" alt="poker-cat" class="text-center m-auto col-sm-12 col-md-12 col-lg-10 col-xl-8"></li>
           <li class="text-center">"Pick a sub, any sub, but make it quick!"</li>`
@@ -25,6 +27,7 @@ const fetchTopFive = async sub => {
   const posts = jsonData.data.children;
   const content = posts.map((post, i) => (`<li class='list-group-item'><strong>Post ${i + 1}: </strong><em>"${post.data.title}"</em> (/u/${post.data.author}) <a href='${post.data.url}' class='badge badge-info' target="_blank">link to post</a></li>`)).join('');
   ul.innerHTML = content;
+  console.log(posts)
 
 
 }
