@@ -12,41 +12,24 @@
 
 </head>
 
-<body class='bg-dark'>
-
-  <h1 class='text-center text-primary'>Top 5 Reddit dev posts
-    <i class="fab fa-reddit mt-3" style='font-size: 80px; display: block; color: red'></i>
-  </h1>
-  <div class="container selectContainer col-sm-10 col-md-10 col-lg-10 col-xl-9">
-
+<body style="background: black;">
+  <h1 class='text-center display-3'><span>Top 5 dev posts</span> <i class="fab fa-reddit m-auto"></i></h1>
   
-      <!-- <select name="postRange" id="postRange">
-        <option selected disabled>Search for top</option>
-        <option value="5">5</option>
-        <option value="10">10</option>
-        <option value="15">15</option>
-      </select> -->
-      <select class="custom-select w-25 mb-3">
-        <option selected disabled>Choose a sub!</option>
-        <option value="javascript">/r/javascript</option>
-        <option value="webdev">/r/webdev</option>
-        <option value="learnjavascript">/r/learnjavascript</option>
-        <option value="web_design">/r/web_design</option>
-        <option value="softwaregore">/r/softwaregore</option>
-        <option value="programmerhumor">/r/programmerhumor</option>
-        <option value="reactjs">/r/reactjs</option>
-      </select>
-      <button id="poker-cat" class="btn btn-success mb-3 ml-3">poker-cat</button>
+  <div class="container selectContainer col-sm-10 col-md-10 col-lg-10 col-xl-9">
+    <select class="custom-select w-50 mb-3">
+      <option selected disabled>Choose a sub!</option>
+      <option value="javascript">/r/javascript</option>
+      <option value="webdev">/r/webdev</option>
+      <option value="learnjavascript">/r/learnjavascript</option>
+      <option value="web_design">/r/web_design</option>
+      <option value="softwaregore">/r/softwaregore</option>
+      <option value="programmerhumor">/r/programmerhumor</option>
+      <option value="reactjs">/r/reactjs</option>
+    </select>
+    <button id="poker-cat" class="btn btn-danger mb-3 ml-3">poker-cat</button>
 
 
-    <!-- <div class='filterButtons'>
-        <label for="filter" class="text-light">Filter by post scores</label>
-        <button class='btn btn-info filter' id='hundred' value="100">Score >= 100</button>
-        <button class='btn btn-info filter' id='fifty' value="50">Score > 50</button>
-        <button class='btn btn-info filter' id='twentyFive' value="25">Score > 25</button>
-      </div> -->
-
-    <div class="jumbotron bg-danger col-sm-12 col-md-12 m-auto">
+    <div class="jumbotron bg-danger col-sm-12 col-md-12 m-auto p-4">
       <ul class="list-group">
         <li class="text-center">
           <img src="http://www.guzer.com/pictures/poker-cat.jpg" alt="poker-cat" class="col-sm-12 col-md-12 col-lg-11 col-xl-10 img-responsive">

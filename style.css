@@ -1,40 +1,44 @@
+
+.display-3 span {
+    text-shadow: -1px 0 , 0 2px #ED001C	, 2px 0 #ED001C	, 0 -1px #ED001C	;
+    color: white;
+}
+
+#poker-cat:hover {
+    border: 1px solid #FFB100;
+}
 .selectContainer {
-    text-align: center;
+  text-align: center;
 }
 
+.badge {
+    background: #0077D6	;
+    color: white;
+}
+
+.badge:hover {
+    color: white;
+    text-decoration: none;
+    transform: scale(1.05)
+}
 .selectContainer:first-child {
-    width: 15%;
-    margin-bottom: 15px;
-    
+  width: 15%;
+  margin-bottom: 15px;
 }
-
 
 ul {
-    margin: 0 auto;
-    text-align: start;
-    padding: 0px;
-    list-style: none;
+  margin: 0 auto;
+  text-align: start;
+  padding: 0px;
+  list-style: none;
 }
 
-img {
-    border: 10px solid black;
+i {
+  font-size: 80px;
+  display: block;
+  color: red;
 }
 
-.filterButtons {
-    margin-top: 15px;
-}
-
-.filterButtons button:nth-child(n + 2) {
-    margin-left: .5em;
-}
-
-.filterButtons button {
-    margin-bottom: .4em;
-}
-
-input[type='text'] {
-    width: 15%;
-    display: inline-block;
-    margin-bottom: 3px;
-}
-
+/* .postText {
+    display: none;
+} */
