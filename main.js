@@ -29,6 +29,7 @@ const fetchTopFive = async sub => {
            post.data.permalink
          }' class='badge' target="_blank">link to post</a>
          <button disabled class="btn">Post score: <strong>${post.data.score}</strong></button>
+         <button class="btn">Read more </button>
          <p class="postText lead" style="display: none">${
            post.data.selftext
          }</p>
