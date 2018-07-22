@@ -33,10 +33,22 @@ ul {
   list-style: none;
 }
 
+li:hover {
+filter: drop-shadow(0px 0px 10px rgba(0,0,0,.5))
+}
+
+#postTitleLink {
+  text-decoration: none;
+  color: black;
+}
+
+#postTitleLink:hover {
+  color: hsl(0, 0%, 28%);
+}
+
 i {
   font-size: 80px;
   display: block;
   color: red;
 }
 
-.postText:hover 
