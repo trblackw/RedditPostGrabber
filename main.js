@@ -40,7 +40,9 @@ const fetchTopFive = async sub => {
         `<li class='list-group-item'>
         <strong><a id="postTitleLink" href='https://reddit.com${
           post.data.permalink
-        }' target='_blank'>${i + 1}) "${post.data.title}"</strong></a><a href='https://reddit.com${
+        }' target='_blank'>${i + 1}) "${
+          post.data.title
+        }"</strong></a><a href='https://reddit.com${
           post.data.permalink
         }'><i class='fas fa-link'></i></a>
         <small class='text-right'>(/u/${post.data.author})</small>
@@ -64,14 +66,29 @@ const fetchTopFive = async sub => {
              ? linkFormatter(post.data.selftext)
              : `<small class="text-muted">No post text to display</small>`
          }</p>
+         
          </div>
+
          
       </li>`
     )
     .join("");
-  ul.innerHTML = content;
-  console.log(posts);
+  // ul.innerHTML = content;
+  // console.log(posts);
+
+  // const vidContainer = document.createElement('div');
+  // vidContainer.innerHTML = `
+  // <video width='${posts[0].data.media.reddit_video.width}' height='${
+  //     posts[0].data.media.reddit_video.height
+  //     }'
+  //     <source src='${posts[0].data.media.reddit_video.dash_url}'
+  //   </video>
+  //   `
+  //   ul.appendChild(vidContainer)
+  // getting somewhere with this
 };
+
+
 
 // passes selected sub to fetchTopFive()
 function selectSub() {
