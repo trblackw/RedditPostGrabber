@@ -1,18 +1,15 @@
-
+/* Stylesheet currently quite messy; will refactor/organize later */
 .display-3 span {
     text-shadow: -1px 0 , 0 2px #ED001C	, 2px 0 #ED001C	, 0 -1px #ED001C	;
     color: white;
 }
 
-#poker-cat:hover {
-    border: 1px solid #FFB100;
-}
 .selectContainer {
   text-align: center;
 }
 
-.badge {
-    background: #0077D6	;
+#poker-cat {
+    background: #5f99cf;
     color: white;
 }
 
@@ -40,16 +37,21 @@ filter: drop-shadow(0px 0px 10px rgba(0,0,0,.5))
 #postTitleLink {
   text-decoration: none;
   color: black;
+  font-size: 1.7em;
 }
 
 #postTitleLink:hover {
   color: hsl(0, 0%, 28%);
 }
 
-i {
+.fa-reddit {
   font-size: 80px;
   display: block;
   color: red;
+}
+
+.fa-link {
+  color: #5f99cf;
 }
 
 #selfTextLink {
