@@ -13,7 +13,18 @@ catButton.addEventListener("click", () => {
           <li class="text-center">"Pick a sub, any sub, but make it quick!"</li>`;
 });
 
+const linkFormatter = linkStr => {
+  const regex = /(\[.+\])(\(.+\))/gi;
+  return linkStr.replace(regex, `<a href='\$2' id="selfTextLink">\$1</a>`).replace(/\[|\]/g, '');
+}
 
+const dateFormatter = timeStamp => {
+  const date = new Date(timeStamp * 1000).toLocaleDateString().split('/');
+  const time = new Date(timeStamp * 1000).toLocaleTimeString().split(':');
+  return `${date[0]}/${date[1]} ${time[0]}:${time[1]}pm`
+}
+
+console.log(dateFormatter(1532307020));
 //get top 5 posts (no filter)
 const fetchTopFive = async sub => {
   const URL = `https://www.reddit.com/r/${sub}/top/.json?limit=5`;
@@ -27,8 +38,8 @@ const fetchTopFive = async sub => {
         `<li class='list-group-item'>
         <strong>${i + 1})</strong>"<strong><a id="postTitleLink" href='https://reddit.com${
           post.data.permalink
-        }'>${post.data.title}</strong></a>"
-         <small>(/u/${post.data.author})</small> 
+        }' target='_blank'>${post.data.title}</strong></a>"
+         <small class="text-right">(/u/${post.data.author})</small> 
          <a href='https://reddit.com${
            post.data.permalink
          }' class='badge' target="_blank">link to post</a>
@@ -38,10 +49,12 @@ const fetchTopFive = async sub => {
          <button disabled class="btn">Comments: <strong>${
           post.data.num_comments
         }</strong></button>
-         <button class="btn btn-sm" id="readMore">Read more</button>
-         <div id="selfText" style="display: none;">
+        <small>${
+          dateFormatter(post.data.created_utc)
+        }</small>
+         <div id="selfText" style="display: inherit; overflow: scroll;">
          <hr>
-         <p class="postText lead">${post.data.selftext}</p>
+         <p class="postText lead">${post.data.selftext ? linkFormatter(post.data.selftext) : `<small class="text-muted">No post text to display</small>`}</p>
          </div>
          
       </li>`
