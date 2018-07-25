@@ -48,7 +48,7 @@ filter: drop-shadow(0px 0px 10px rgba(0,0,0,.5))
 #postTitleLink {
   text-decoration: none;
   color: black;
-  font-size: 1.1em;
+  font-size: 1.5em;
   font-family: 'Fjalla One', sans-serif;
 }
 
@@ -56,11 +56,11 @@ filter: drop-shadow(0px 0px 10px rgba(0,0,0,.5))
   color: hsl(0, 0%, 28%);
 }
 
-.fa-reddit {
+/* .fa-reddit {
   font-size: 80px;
   display: block;
   color: red;
-}
+} */
 
 .fa-link {
   color: #5f99cf;
@@ -75,11 +75,25 @@ filter: drop-shadow(0px 0px 10px rgba(0,0,0,.5))
 }
 
 .fa-arrow-up, .fa-comments {
-  font-size: 0.9em;
+  font-size: 1.1em;
   color: #5f99cf;
 }
 
 #selfText {
   font-family: 'Source Sans Pro', sans-serif;
   font-size: 1em;
+}
+
+@media only screen and (max-width: 600px) {
+  #postTitleLink {
+    text-decoration: none;
+    color: black;
+    font-size: 1.1em;
+    font-family: 'Fjalla One', sans-serif;
+  }
+
+  .fa-arrow-up, .fa-comments {
+    font-size: 0.9em;
+    color: #5f99cf;
+  }
 }
