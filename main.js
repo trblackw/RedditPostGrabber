@@ -31,11 +31,14 @@ const dateFormatter = timeStamp => {
 };
 
 const fetchTopFive = async sub => {
+    const netStart = window.performance.now();
   const URL = `https://www.reddit.com/r/${sub}/top/.json?limit=5`;
   const fetchResult = fetch(URL);
   const response = await fetchResult;
   const jsonData = await response.json();
   const posts = jsonData.data.children;
+
+    const mapStart = window.performance.now();
   ul.innerHTML = posts
     .map((post, i) => {
       const {
@@ -100,7 +103,8 @@ const fetchTopFive = async sub => {
       }
     })
     .join("");
-  console.log(posts);
+    const end = window.performance.now();
+    console.log('netStart', netStart, 'mapStart', mapStart, 'end', end, 'network time', (mapStart - netStart), 'processing time', end - mapStart);
 };
 
 // passes selected sub to fetchTopFive()
