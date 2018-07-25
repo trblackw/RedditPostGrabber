@@ -67,9 +67,9 @@ const fetchTopFive = async sub => {
         </div>
         <small class="d-block text-muted">${dateFormatter(created_utc)}
         </small>
-         <div id="selfText" style="display: inherit; overflow: scroll;">
+         <div id="selfText">
          <hr>
-         <p class="postText lead">${
+         <p class="postText">${
            selftext
              ? linkFormatter(selftext)
              : `<p class='text-muted small d-inline'>There's no text or media to display for this post</p>`
@@ -92,9 +92,9 @@ const fetchTopFive = async sub => {
         </div>
         <small class="d-block text-muted">${dateFormatter(created_utc)}
         </small>
-         <div id="selfText" style="display: inherit; overflow: scroll;">
+         <div id="selfText">
          <hr>
-         <p class="postText lead">${
+         <p class="postText">${
            selftext ? linkFormatter(selftext) : ``
          }</p>   
          <div class='container m-auto justify-content-center'>
