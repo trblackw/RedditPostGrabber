@@ -9,7 +9,7 @@ const readMoreButton = document.querySelector("#readMore");
 
 //brings the cat image back; admittedly stupid
 catButton.addEventListener("click", () => {
-  ul.innerHTML = `<li class="text-center"><img src="http://www.guzer.com/pictures/poker-cat.jpg" alt="poker-cat" class="text-center m-auto col-sm-12 col-md-12 col-lg-10 col-xl-8"></li>
+  ul.innerHTML = `<li class="text-center"><img src="http://www.guzer.com/pictures/poker-cat.jpg" alt="poker-cat" class="img-fluid rounded w-100 border border-danger"></li>
           <li class="text-center text-light">"Pick a sub, any sub, but make it quick!"</li>`;
 });
 
