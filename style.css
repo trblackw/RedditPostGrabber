@@ -1,7 +1,15 @@
+@import url('https://fonts.googleapis.com/css?family=Fjalla+One|Permanent+Marker|Source+Sans+Pro');
 /* Stylesheet currently quite messy; will refactor/organize later */
-.display-3 span {
+#title {
     text-shadow: -1px 0 , 0 2px #ED001C	, 2px 0 #ED001C	, 0 -1px #ED001C	;
-    color: white;
+    color: rgb(247, 240, 240);
+    font-family: 'Permanent Marker', cursive;
+    font-size: 1.7em;
+}
+
+#postHolder {
+  border: 3px solid rgb(197, 4, 42);
+  background: #ED001C;
 }
 
 .selectContainer {
@@ -9,8 +17,10 @@
 }
 
 #poker-cat {
-    background: #5f99cf;
+    background: transparent;
     color: white;
+    font-size: 3.2em;
+    padding: 0px;
 }
 
 .badge:hover {
@@ -28,6 +38,7 @@ ul {
   text-align: start;
   padding: 0px;
   list-style: none;
+  filter: drop-shadow(0 0 0.75rem black);
 }
 
 li:hover {
@@ -38,6 +49,7 @@ filter: drop-shadow(0px 0px 10px rgba(0,0,0,.5))
   text-decoration: none;
   color: black;
   font-size: 1.7em;
+  font-family: 'Fjalla One', sans-serif;
 }
 
 #postTitleLink:hover {
@@ -54,6 +66,19 @@ filter: drop-shadow(0px 0px 10px rgba(0,0,0,.5))
   color: #5f99cf;
 }
 
-#selfTextLink {
+.selfTextLink {
   color: red;
+}
+
+#postImg {
+  border: 2.5px solid #5f99cf;
+}
+
+.fa-arrow-up, .fa-comments {
+  font-size: 1.3em;
+  color: #5f99cf;
+}
+
+.postText {
+  font-family: 'Source Sans Pro', sans-serif;
 }

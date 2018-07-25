@@ -13,9 +13,9 @@
 </head>
 
 <body style="background: black;">
-  <h1 class='text-center display-3'>
-    <span>Top 5 dev posts</span>
-    <i class="fab fa-reddit m-auto"></i>
+  <h1 class='text-center'>
+    <span id='title'>Top 5 dev posts</span>
+    <i class="fab fa-reddit ml-1 mt-1"></i>
   </h1>
 
   <div class="container selectContainer col-sm-12 col-md-12 col-lg-10 col-xl-9">
@@ -28,11 +28,19 @@
       <option value="softwaregore">/r/softwaregore</option>
       <option value="programmerhumor">/r/programmerhumor</option>
       <option value="reactjs">/r/reactjs</option>
+      <option value="Development">/r/Development</option>
+      <option value="gamedev">/r/gamedev</option>
+      <option value="softwaredevelopment">/r/softwaredevelopment</option>
+      <option value="software">/r/software</option>
+      <option value="coding">/r/coding</option>
+      <option value="learnprogramming">/r/learnprogramming</option>
+      <option value="programming">/r/programming</option>
+      <option value="programmingcirclejerk">/r/programmingcirclejerk</option>
+      
     </select>
-    <button id="poker-cat" class="btn mb-3 ml-3">poker-cat</button>
+    <button id="poker-cat" class="btn mb-3 ml-3">🕵🏻‍</button>
 
-
-    <div class="jumbotron bg-danger col-sm-12 col-md-12 m-auto p-4">
+    <div class="jumbotron col-sm-12 col-md-12 m-auto p-4" id="postHolder">
       <ul class="list-group">
         <li class="text-center">
           <img src="http://www.guzer.com/pictures/poker-cat.jpg" alt="poker-cat" class="col-sm-12 col-md-12 col-lg-11 col-xl-10 img-responsive">
@@ -42,7 +50,12 @@
     </div>
     <!-- <button class="btn btn-sm btn-warning" id="postRangeSelector">click me</button> -->
   </div>
+
+  <aside class='text-center text-light'>
+    (BEAR WITH ME I'M A WORK IN PROGRESS) 🤷🏻‍
+  </aside>
   <script src="main.js"></script>
 </body>
 
 </html>
+
