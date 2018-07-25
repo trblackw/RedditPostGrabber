@@ -1,2 +1,2 @@
 # RedditPostGrabber
-Uses Reddit API to fetch the top 5 posts of any given subreddit
+Uses the Reddit API to fetch the top 5 posts of any selected subreddit using the ES6 map array method combined with template literals to loop through JSON data received by the JS fetch API. Each of the objects used in the generated template literals are deconstructed, and tested against several regexes that serve to properly format any post links, whether they are formatted by Reddit or written inline. I've also included some functionality that monitors the speed of the application. It's still a work in progress!
