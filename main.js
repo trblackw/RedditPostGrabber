@@ -26,6 +26,17 @@ const linkFormatter = linkStr => {
   );
 };
 
+//eliminate '/r/' from each select option and then sort them alphabetically
+//nice in theory, tricky to implement; trying to avoid generating more template literals
+const alphabetize = list => {
+  const nodeList = list.children;
+  return [...nodeList]
+    .map(sub => sub.innerHTML)
+    .join("")
+    .split(/\/r\//)
+    .sort();
+};
+
 //forms (mm/dd time of post) format
 const dateFormatter = timeStamp => {
   const date = new Date(timeStamp * 1000).toLocaleDateString().split("/");
@@ -33,6 +44,8 @@ const dateFormatter = timeStamp => {
   return `${date[0]}/${date[1]} ${time[0]}:${time[1]}pm`;
 };
 
+//fetch the top 5 posts of selected subreddit, deconstruct the post JSON, pulling out needed objects, generate
+//HTML using said object data via template literals
 const fetchTopFive = async sub => {
   const netStart = window.performance.now();
   const URL = `https://www.reddit.com/r/${sub}/top/.json?limit=5`;
@@ -80,7 +93,6 @@ const fetchTopFive = async sub => {
       `; //if there is an image, display the image
       } else {
         const { url } = preview.images[0].source;
-        console.log(preview.images);
         return `
       <li class='list-group-item'>
         <strong><a id="postTitleLink" href='https://reddit.com${permalink}' target='_blank'>${i +
@@ -94,9 +106,7 @@ const fetchTopFive = async sub => {
         </small>
          <div id="selfText">
          <hr>
-         <p class="postText">${
-           selftext ? linkFormatter(selftext) : ``
-         }</p>   
+         <p class="postText">${selftext ? linkFormatter(selftext) : ``}</p>   
          <div class='container m-auto justify-content-center'>
             <a href='${url}'><img src=${url} width=100% height=auto class='img-fluid' id='postImg'></a>
         </div>
@@ -107,6 +117,8 @@ const fetchTopFive = async sub => {
     })
     .join("");
   const end = window.performance.now();
+
+  //track speed/performance of map() method
   console.log(
     "netStart",
     netStart,
@@ -123,8 +135,9 @@ const fetchTopFive = async sub => {
   console.log(checkPerformance(mapStart - netStart, end - mapStart));
 };
 
-//monitor speed/performance
-const checkPerformance = (networkTime, processingTime) => `Network time: ${networkTime}ms, Processing time: ${processingTime}ms`;
+//monitor speed/performance of network/processing time
+const checkPerformance = (networkTime, processingTime) =>
+  `Network time: ${networkTime}ms, Processing time: ${processingTime}ms`;
 //MDN ref: "https://developer.mozilla.org/en-US/docs/Web/API/Performance/now"
 
 // passes selected sub to fetchTopFive()
@@ -132,5 +145,5 @@ function selectSub() {
   fetchTopFive(this.value);
 }
 
+//handles change event for select dropdown
 select.addEventListener("change", selectSub);
-//readMoreButton.addEventListener('click', () => postText.style.display === 'inherit');
