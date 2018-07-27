@@ -16,13 +16,6 @@
   text-align: center;
 }
 
-#poker-cat {
-    background: transparent;
-    color: white;
-    font-size: 3.1em;
-    padding: 0px;
-}
-
 .badge:hover {
     color: white;
     text-decoration: none;
