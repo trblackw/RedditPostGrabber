@@ -1,5 +1,3 @@
-//test commit (dealing with email issue)
-
 //html elements
 const ul = document.querySelector("ul");
 const select = document.querySelector("select");
