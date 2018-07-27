@@ -1,7 +1,6 @@
 //html elements
 const ul = document.querySelector("ul");
 const select = document.querySelector("select");
-const selfText = document.querySelector("#selfText");
 
 //handles either reddit's format of links (linktitle)[url] or inline links 'https//...'
 
