@@ -1,17 +1,7 @@
 //html elements
 const ul = document.querySelector("ul");
 const select = document.querySelector("select");
-const container = document.querySelector(".container");
-const catButton = document.querySelector("#poker-cat");
 const selfText = document.querySelector("#selfText");
-const readMoreButton = document.querySelector("#readMore");
-
-
-//brings the cat image back; admittedly stupid
-catButton.addEventListener("click", () => {
-  ul.innerHTML = `<li class="text-center"><img src="http://www.guzer.com/pictures/poker-cat.jpg" alt="poker-cat" class="img-fluid rounded w-100 border border-danger"></li>
-          <li class="text-center text-light">"Pick a sub, any sub, but make it quick!"</li>`;
-});
 
 //handles either reddit's format of links (linktitle)[url] or inline links 'https//...'
 // const {href, hostname, pathname} = new URL(varname);
