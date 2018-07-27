@@ -4,8 +4,6 @@ const select = document.querySelector("select");
 const selfText = document.querySelector("#selfText");
 
 //handles either reddit's format of links (linktitle)[url] or inline links 'https//...'
-// const {href, hostname, pathname} = new URL(varname);
-// return `<a href="${href}">${hostname}${pathname}</a>`
 
 const linkFormatter = linkStr => {
   const redditLink = /(\[.+\])(\(.+\))/gi;
@@ -131,7 +129,6 @@ const fetchTopFive = async sub => {
 //monitor speed/performance of network/processing time
 const checkPerformance = (networkTime, processingTime) =>
   `Network time: ${networkTime}ms, Processing time: ${processingTime}ms`;
-//MDN ref: "https://developer.mozilla.org/en-US/docs/Web/API/Performance/now"
 
 // passes selected sub to fetchTopFive()
 function selectSub() {
