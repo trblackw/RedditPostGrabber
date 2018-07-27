@@ -5,7 +5,7 @@ const container = document.querySelector(".container");
 const catButton = document.querySelector("#poker-cat");
 const selfText = document.querySelector("#selfText");
 const readMoreButton = document.querySelector("#readMore");
-//const postRangeSelector = document.querySelector("#postRangeSelector");
+
 
 //brings the cat image back; admittedly stupid
 catButton.addEventListener("click", () => {
