@@ -14,6 +14,9 @@ catButton.addEventListener("click", () => {
 });
 
 //handles either reddit's format of links (linktitle)[url] or inline links 'https//...'
+// const {href, hostname, pathname} = new URL(varname);
+// return `<a href="${href}">${hostname}${pathname}</a>`
+
 const linkFormatter = linkStr => {
   const redditLink = /(\[.+\])(\(.+\))/gi;
   const inlineLink = /(https|http)(\W*)(\w+)(\.com.*?)/gi;
