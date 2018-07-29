@@ -2,8 +2,17 @@
 const ul = document.querySelector("ul");
 const select = document.querySelector("select");
 
-//handles either reddit's format of links (linktitle)[url] or inline links 'https//...'
 
+
+//Attempting to refactor linkFormatter function below to make it easier to read
+// const formatLink = (linkStr) => {
+// const {href, hostname, pathname} = new URL(linkStr);
+// //return `<a href="${href}">${hostname}${pathname}</a>`
+// return linkStr.match(/(\[.+\])(\(.+\))/gi);
+// }
+
+
+//handles either reddit's format of links (linktitle)[url] or inline links 'https//...'
 const linkFormatter = linkStr => {
   const redditLink = /(\[.+\])(\(.+\))/gi;
   const inlineLink = /(https|http)(\W*)(\w+)(\.com.*?)/gi;
@@ -34,7 +43,6 @@ const dateFormatter = timeStamp => {
   return `${date[0]}/${date[1]} ${time[0]}:${time[1]}pm`;
 };
 
-
 const fetchData = url => {
   return fetch(url)
     .then(res => res.json())
@@ -44,29 +52,30 @@ const fetchData = url => {
 //fetch the top 5 posts of selected subreddit, deconstruct the post JSON, pulling out needed objects, generate
 //HTML using said object data via template literals
 const fetchTopFive = sub => {
-  return fetchData(`https://www.reddit.com/r/${sub}/top/.json?limit=5`)
-    .then(res => generateHTML(res.data.children, ul))
-}
+  return fetchData(`https://www.reddit.com/r/${sub}/top/.json?limit=5`).then(
+    res => generateHTML(res.data.children, ul)
+  );
+};
 
 const generateHTML = (data, element) => {
   element.innerHTML = data
-  .map((post, i) => {
-        const {
-          permalink,
-          title,
-          author,
-          score,
-          num_comments,
-          created_utc,
-          selftext,
-          preview
-        } = post.data;
-        //if there is no image to display, display just the text
-        if (!preview) {
-          return `
+    .map((post, i) => {
+      const {
+        permalink,
+        title,
+        author,
+        score,
+        num_comments,
+        created_utc,
+        selftext,
+        preview
+      } = post.data;
+      //if there is no image to display, display just the text
+      if (!preview) {
+        return `
           <li class='list-group-item'>
           <strong><a id="postTitleLink" href='https://reddit.com${permalink}' target='_blank'>${i +
-            1}) "${title}"</strong></a><a href='https://reddit.com${permalink}'><i class='fas fa-link'></i></a>
+          1}) "${title}"</strong></a><a href='https://reddit.com${permalink}'><i class='fas fa-link'></i></a>
           <small class='text-right'>(/u/${author})</small>
           <div class='container justify-content-end row'>
            <button disabled class="btn mx-3 p-2"><strong><i class="fas fa-arrow-up"></i> ${score}</strong></button>
@@ -85,12 +94,12 @@ const generateHTML = (data, element) => {
            </div> 
         </li>
         `; //if there is an image, display the image
-        } else {
-          const { url } = preview.images[0].source;
-          return `
+      } else {
+        const { url } = preview.images[0].source;
+        return `
         <li class='list-group-item'>
           <strong><a id="postTitleLink" href='https://reddit.com${permalink}' target='_blank'>${i +
-            1}) "${title}"</strong></a><a href='https://reddit.com${permalink}'><i class='fas fa-link'></i></a>
+          1}) "${title}"</strong></a><a href='https://reddit.com${permalink}'><i class='fas fa-link'></i></a>
           <small class='text-right'>(/u/${author})</small>
           <div class='container justify-content-end row'>
            <button disabled class="btn mx-3 p-2"><i class="fas fa-arrow-up"></i> ${score}</strong></button>
@@ -107,11 +116,10 @@ const generateHTML = (data, element) => {
           </div> 
         </li>
         `;
-        }
-      })
-      .join("");
-
-}
+      }
+    })
+    .join("");
+};
 
 // passes selected sub to fetchTopFive()
 function selectSub() {
