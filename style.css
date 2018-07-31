@@ -1,15 +1,15 @@
-@import url('https://fonts.googleapis.com/css?family=Fjalla+One|Permanent+Marker|Source+Sans+Pro');
+@import url("https://fonts.googleapis.com/css?family=Fjalla+One|Permanent+Marker|Source+Sans+Pro");
 /* Stylesheet currently quite messy; will refactor/organize later */
 #title {
-    text-shadow: -1px 0 , 0 2px #ED001C	, 2px 0 #ED001C	, 0 -1px #ED001C	;
-    color: rgb(247, 240, 240);
-    font-family: 'Permanent Marker', cursive;
-    font-size: 1.7em;
+  text-shadow: -1px 0, 0 2px #ed001c, 2px 0 #ed001c, 0 -1px #ed001c;
+  color: rgb(247, 240, 240);
+  font-family: "Permanent Marker", cursive;
+  font-size: 1.7em;
 }
 
 #postHolder {
   border: 3px solid rgb(197, 4, 42);
-  background: #ED001C;
+  background: #ed001c;
 }
 
 .selectContainer {
@@ -17,9 +17,9 @@
 }
 
 .badge:hover {
-    color: white;
-    text-decoration: none;
-    transform: scale(1.05)
+  color: white;
+  text-decoration: none;
+  transform: scale(1.05);
 }
 .selectContainer:first-child {
   width: 15%;
@@ -35,14 +35,14 @@ ul {
 }
 
 li:hover {
-filter: drop-shadow(0px 0px 10px rgba(0,0,0,.5))
+  filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.5));
 }
 
 #postTitleLink {
   text-decoration: none;
   color: black;
   font-size: 1.5em;
-  font-family: 'Fjalla One', sans-serif;
+  font-family: "Fjalla One", sans-serif;
 }
 
 #postTitleLink:hover {
@@ -61,13 +61,14 @@ filter: drop-shadow(0px 0px 10px rgba(0,0,0,.5))
   border: 2.5px solid #5f99cf;
 }
 
-.fa-arrow-up, .fa-comments {
+.fa-arrow-up,
+.fa-comments {
   font-size: 1.1em;
   color: #5f99cf;
 }
 
 #selfText {
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: "Source Sans Pro", sans-serif;
   font-size: 1em;
 }
 
@@ -76,10 +77,11 @@ filter: drop-shadow(0px 0px 10px rgba(0,0,0,.5))
     text-decoration: none;
     color: black;
     font-size: 1.1em;
-    font-family: 'Fjalla One', sans-serif;
+    font-family: "Fjalla One", sans-serif;
   }
 
-  .fa-arrow-up, .fa-comments {
+  .fa-arrow-up,
+  .fa-comments {
     font-size: 0.9em;
     color: #5f99cf;
   }
