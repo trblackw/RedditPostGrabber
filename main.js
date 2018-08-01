@@ -4,15 +4,14 @@ const select = document.querySelector("select");
 
 
 //NOT FUNCTIONAL YET
-const textFormatter = postText => {
-  return postText.replace(/^(\*\*)(.+)(\*\*)$/ig, `<p class="postText font-weight-bold">$2</p>`)
-}
+// const textFormatter = postText => {
+//   return postText.replace(/^(\*\*)(\w+)(\*\*)$/ig, `<strong>\$2</strong>`)
+// }
 
 //handles either reddit's format of links (linktitle)[url] or inline links 'https//...'
 const linkFormatter = linkStr => {
   let result = linkStr.replace(/\[(.+?)\]\((https?:\/\/.+?)\)/g, '<a href="$2" class="selfTextLink">$1</a>');
-    return result.replace(/(?: |^)(https?\:\/\/[a-zA-Z0-9/.(]+)/g, ' <a href="$1" class="selfTextLink">$1</a>');
-    //return textFormatter(result)
+  return result.replace(/(?: |^)(https?\:\/\/[a-zA-Z0-9/.(]+)/g, '<a href="$1" class="selfTextLink">$1</a>');
 }
 
 //eliminate '/r/' from each select option and then sort them alphabetically
