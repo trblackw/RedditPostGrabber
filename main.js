@@ -3,30 +3,12 @@ const ul = document.querySelector("ul");
 const select = document.querySelector("select");
 
 
-
-//Attempting to refactor linkFormatter function below to make it easier to read
-// const formatLink = (linkStr) => {
-// const {href, hostname, pathname} = new URL(linkStr);
-// //return `<a href="${href}">${hostname}${pathname}</a>`
-// return linkStr.match(/(\[.+\])(\(.+\))/gi);
-// }
-
-
 //handles either reddit's format of links (linktitle)[url] or inline links 'https//...'
-
-//SOMETHING'S BROKEN
-
 const linkFormatter = linkStr => {
-  const redditLink = /(\[.+\])(\(.+\))/gi;
-  const inlineLink = /(https|http)(\W*)(\w+)(\.com.*?)/gi;
-  linkStr = linkStr
-    .replace(redditLink, `<a href='\$2' class="selfTextLink">\$1</a>`)
-    .replace(/\[|\]|\(|\)/g, "");
-  return linkStr.replace(
-    inlineLink,
-    `<a href='\$1\$2\$3\$4' class="selfTextLink">\$3\$4</a>`
-  );
-};
+  const result = linkStr.replace(/\[(.+?)\]\((https?:\/\/.+?)\)/g, '<a href="$2" class="selfTextLink">$1</a>');
+    return result.replace(/(?: |^)(https?\:\/\/[a-zA-Z0-9/.(]+)/g, ' <a href="$1" class="selfTextLink">$1</a>');
+}
+
 
 //eliminate '/r/' from each select option and then sort them alphabetically
 //nice in theory, tricky to implement; trying to avoid generating more template literals
