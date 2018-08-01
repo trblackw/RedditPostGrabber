@@ -3,12 +3,17 @@ const ul = document.querySelector("ul");
 const select = document.querySelector("select");
 
 
-//handles either reddit's format of links (linktitle)[url] or inline links 'https//...'
-const linkFormatter = linkStr => {
-  const result = linkStr.replace(/\[(.+?)\]\((https?:\/\/.+?)\)/g, '<a href="$2" class="selfTextLink">$1</a>');
-    return result.replace(/(?: |^)(https?\:\/\/[a-zA-Z0-9/.(]+)/g, ' <a href="$1" class="selfTextLink">$1</a>');
+//NOT FUNCTIONAL YET
+const textFormatter = postText => {
+  return postText.replace(/^(\*\*)(.+)(\*\*)$/ig, `<p class="postText font-weight-bold">$2</p>`)
 }
 
+//handles either reddit's format of links (linktitle)[url] or inline links 'https//...'
+const linkFormatter = linkStr => {
+  let result = linkStr.replace(/\[(.+?)\]\((https?:\/\/.+?)\)/g, '<a href="$2" class="selfTextLink">$1</a>');
+    return result.replace(/(?: |^)(https?\:\/\/[a-zA-Z0-9/.(]+)/g, ' <a href="$1" class="selfTextLink">$1</a>');
+    //return textFormatter(result)
+}
 
 //eliminate '/r/' from each select option and then sort them alphabetically
 //nice in theory, tricky to implement; trying to avoid generating more template literals
