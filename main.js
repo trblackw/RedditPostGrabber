@@ -3,15 +3,27 @@ const ul = document.querySelector("ul");
 const select = document.querySelector("select");
 
 
-//NOT FUNCTIONAL YET
+//NOT (completely) FUNCTIONAL YET
+const textFormatter = postText => {
+  //somewhat effective but still buggy (only works for bold)
+  return postText.replace(/(\*\*)\s?(\w+)\s?(\*\*)\.?/ig, `<strong>\$2</strong>`);
+}
+
 // const textFormatter = postText => {
-//   return postText.replace(/^(\*\*)(\w+)(\*\*)$/ig, `<strong>\$2</strong>`)
+//   return postText.replace(/(\*\*)(\w+)(\*\*)/ig, 'BOLD');
 // }
+
+
+// const testString = '*We are experimenting with fortnightly posting based on a suggestion - you can see the previous posts here and here* --- Top Level comments must be **Job Opportunities**. Please include **Location** or any other **Requirements** in your comment. e.g. *If you require people to work on site in San Francisco, you must note that in your post. If you require an Engineering degree, you must note that in your post.* Please include as much information as possible. If you are looking for jobs, send a PM to the poster. For more ideas on what to include, use the HN Whos hiring format Recruiters ok ## ⭐remember to post **Location** details!'
+
+// console.log(textFormatter(testString));
+
 
 //handles either reddit's format of links (linktitle)[url] or inline links 'https//...'
 const linkFormatter = linkStr => {
   let result = linkStr.replace(/\[(.+?)\]\((https?:\/\/.+?)\)/g, '<a href="$2" class="selfTextLink">$1</a>');
-  return result.replace(/(?: |^)(https?\:\/\/[a-zA-Z0-9/.(]+)/g, '<a href="$1" class="selfTextLink">$1</a>');
+  result = result.replace(/(?: |^)(https?\:\/\/[a-zA-Z0-9/.(]+)/g, '<a href="$1" class="selfTextLink">$1</a>');
+  return textFormatter(result);
 }
 
 //eliminate '/r/' from each select option and then sort them alphabetically
