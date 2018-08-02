@@ -2,29 +2,31 @@
 const ul = document.querySelector("ul");
 const select = document.querySelector("select");
 
-
 //NOT (completely) FUNCTIONAL YET
+//Also annoying because devs rarely format their text with these conventions it seems!
 const textFormatter = postText => {
   //somewhat effective but still buggy (only works for bold)
-  return postText.replace(/(\*\*)\s?(\w+)\s?(\*\*)\.?/ig, `<strong>\$2</strong>`);
-}
-
-// const textFormatter = postText => {
-//   return postText.replace(/(\*\*)(\w+)(\*\*)/ig, 'BOLD');
-// }
-
-
+  return postText.replace(
+    /(\*\*)\s?(\w+\s?\w*?)(\*\*)\.?/gi,
+    `<strong>\$2</strong>`
+  );
+};
 // const testString = '*We are experimenting with fortnightly posting based on a suggestion - you can see the previous posts here and here* --- Top Level comments must be **Job Opportunities**. Please include **Location** or any other **Requirements** in your comment. e.g. *If you require people to work on site in San Francisco, you must note that in your post. If you require an Engineering degree, you must note that in your post.* Please include as much information as possible. If you are looking for jobs, send a PM to the poster. For more ideas on what to include, use the HN Whos hiring format Recruiters ok ## ⭐remember to post **Location** details!'
 
-// console.log(textFormatter(testString));
-
+// console.log(testFormatter(testString));
 
 //handles either reddit's format of links (linktitle)[url] or inline links 'https//...'
 const linkFormatter = linkStr => {
-  let result = linkStr.replace(/\[(.+?)\]\((https?:\/\/.+?)\)/g, '<a href="$2" class="selfTextLink">$1</a>');
-  result = result.replace(/(?: |^)(https?\:\/\/[a-zA-Z0-9/.(]+)/g, '<a href="$1" class="selfTextLink">$1</a>');
+  let result = linkStr.replace(
+    /\[(.+?)\]\((https?:\/\/.+?)\)/g,
+    '<a href="$2" class="selfTextLink">$1</a>'
+  );
+  result = result.replace(
+    /(?: |^)(https?\:\/\/[a-zA-Z0-9/.(]+)/g,
+    '<a href="$1" class="selfTextLink">$1</a>'
+  );
   return textFormatter(result);
-}
+};
 
 //eliminate '/r/' from each select option and then sort them alphabetically
 //nice in theory, tricky to implement; trying to avoid generating more template literals
