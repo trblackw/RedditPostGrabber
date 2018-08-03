@@ -18,7 +18,7 @@ const textFormatter = postText => {
 //handles either reddit's format of links (linktitle)[url] or inline links 'https//...'
 const linkFormatter = linkStr => {
   let result = linkStr.replace(
-    /\[(.+?)\]\((https?:\/\/.+?)\)/g,
+    /\[(.+?)\]\((https?.*?)\)/g,
     '<a href="$2" class="selfTextLink">$1</a>'
   );
   result = result.replace(
