@@ -7,11 +7,11 @@ const select = document.querySelector("select");
 const textFormatter = postText => {
   //somewhat effective but still buggy (only works for bold)
   return postText.replace(
-    /(\*\*)\s?(\w+\s?\w*?)(\*\*)\.?/gi,
+    /(\*\*)(\w+\s?\w+\s?\w+)(\*\*)\.?/gi,
     `<strong>\$2</strong>`
   );
 };
-// const testString = '*We are experimenting with fortnightly posting based on a suggestion - you can see the previous posts here and here* --- Top Level comments must be **Job Opportunities**. Please include **Location** or any other **Requirements** in your comment. e.g. *If you require people to work on site in San Francisco, you must note that in your post. If you require an Engineering degree, you must note that in your post.* Please include as much information as possible. If you are looking for jobs, send a PM to the poster. For more ideas on what to include, use the HN Whos hiring format Recruiters ok ## ⭐remember to post **Location** details!'
+
 
 // console.log(testFormatter(testString));
 
